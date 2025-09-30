@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="md:col-span-1">
-            <Link href="/" className="text-xl font-bold text-[#00b5b8] dark:text-[#00c9cc]">
+            <Link href="/" className="text-xl font-bold text-[color:var(--primary)]">
               walkierentals
             </Link>
             <div className="mt-4 text-sm text-black/60 dark:text-white/60">

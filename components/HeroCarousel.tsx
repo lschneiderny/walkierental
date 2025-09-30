@@ -89,7 +89,7 @@ export default function HeroCarousel() {
                 <p className="text-lg md:text-xl text-black/70 dark:text-white/70 mb-6">
                   Reliable two-way radios for events, productions, and crews
                 </p>
-                <Link href="/rentals" className="inline-block rounded bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
+                <Link href="/rentals" className="inline-block rounded bg-[color:var(--primary)] hover:bg-[color:var(--primary-hover)] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
                   Browse Rentals
                 </Link>
               </div>
@@ -102,7 +102,7 @@ export default function HeroCarousel() {
                 <p className="text-lg md:text-xl text-black/70 dark:text-white/70 mb-6">
                   Pre-configured bundles for small events to large productions
                 </p>
-                <Link href="/packages" className="inline-block rounded bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
+                <Link href="/packages" className="inline-block rounded bg-[color:var(--accent)] hover:bg-[color:var(--accent-hover)] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
                   View Packages
                 </Link>
               </div>
@@ -115,7 +115,7 @@ export default function HeroCarousel() {
                 <p className="text-lg md:text-xl text-black/70 dark:text-white/70 mb-6">
                   Earpieces, belt clips, and more for purchase
                 </p>
-                <Link href="/accessories" className="inline-block rounded bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
+                <Link href="/accessories" className="inline-block rounded bg-[color:var(--success)] hover:bg-[color:var(--success-hover)] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
                   Shop Accessories
                 </Link>
               </div>

@@ -39,7 +39,7 @@ export default function SignInPage() {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border rounded px-3 py-2 bg-transparent" />
         </div>
         {error && <p className="text-sm text-red-600">{error}</p>}
-        <button disabled={loading} className="w-full rounded bg-black text-white dark:bg-white dark:text-black py-2 text-sm">
+        <button disabled={loading} className="w-full rounded bg-[color:var(--primary)] hover:bg-[color:var(--primary-hover)] text-white py-2 text-sm transition-colors">
           {loading ? "Signing in..." : "Sign in"}
         </button>
       </form>

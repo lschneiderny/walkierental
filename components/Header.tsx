@@ -55,7 +55,7 @@ export default function Header() {
                       onClick={() => toggleDropdown('rentals')}
                       className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors
                         ${isDropdownOpen('rentals') ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}
-                        ${isActive('/rentals') ? 'text-[#00b5b8] dark:text-[#00c9cc]' : 'text-gray-700 dark:text-gray-300'}
+                        ${isActive('/rentals') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
                       `}
                     >
                       Rentals
@@ -102,7 +102,7 @@ export default function Header() {
                       href="/packages"
                       className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
                         hover:bg-gray-100 dark:hover:bg-gray-800
-                        ${isActive('/packages') ? 'text-[#00b5b8] dark:text-[#00c9cc]' : 'text-gray-700 dark:text-gray-300'}
+                        ${isActive('/packages') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
                       `}
                     >
                       Packages
@@ -115,7 +115,7 @@ export default function Header() {
                       href="/accessories"
                       className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
                         hover:bg-gray-100 dark:hover:bg-gray-800
-                        ${isActive('/accessories') ? 'text-[#00b5b8] dark:text-[#00c9cc]' : 'text-gray-700 dark:text-gray-300'}
+                        ${isActive('/accessories') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
                       `}
                     >
                       Accessories
@@ -129,7 +129,7 @@ export default function Header() {
                         href="/admin"
                         className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
                           hover:bg-gray-100 dark:hover:bg-gray-800
-                          ${isActive('/admin') ? 'text-[#00b5b8] dark:text-[#00c9cc]' : 'text-gray-700 dark:text-gray-300'}
+                          ${isActive('/admin') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
                         `}
                       >
                         Admin
@@ -159,14 +159,14 @@ export default function Header() {
                 {session?.user ? (
                   <button
                     onClick={() => signOut({ callbackUrl: "/" })}
-                    className="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#00b5b8] hover:bg-[#009a9d] dark:bg-[#00c9cc] dark:hover:bg-[#00adb0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00b5b8]"
+                    className="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[color:var(--primary)] hover:bg-[color:var(--primary-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[color:var(--primary)]"
                   >
                     Sign out
                   </button>
                 ) : (
                   <button
                     onClick={() => setLoginModalOpen(true)}
-                    className="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#00b5b8] hover:bg-[#009a9d] dark:bg-[#00c9cc] dark:hover:bg-[#00adb0] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#00b5b8]"
+                    className="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[color:var(--primary)] hover:bg-[color:var(--primary-hover)] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[color:var(--primary)]"
                   >
                     Login
                   </button>

@@ -95,7 +95,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[#00b5b8] focus:border-[#00b5b8]"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[color:var(--primary)] focus:border-[color:var(--primary)]"
                 required
               />
             </div>
@@ -106,7 +106,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[#00b5b8] focus:border-[#00b5b8]"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[color:var(--primary)] focus:border-[color:var(--primary)]"
                 required
               />
             </div>
@@ -118,7 +118,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-[#5cb85c] hover:bg-[#4cae4c] text-white font-semibold py-2 rounded transition-colors disabled:opacity-50 uppercase tracking-wide text-sm"
+              className="w-full bg-[color:var(--success)] hover:bg-[color:var(--success-hover)] text-white font-semibold py-2 rounded transition-colors disabled:opacity-50 uppercase tracking-wide text-sm"
             >
               {loading ? "Signing in..." : "Sign in"}
             </button>
@@ -177,7 +177,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   onClose();
                   router.push("/register");
                 }}
-                className="text-[#00b5b8] dark:text-[#00c9cc] hover:underline font-medium"
+                className="text-[color:var(--primary)] hover:underline font-medium"
               >
                 Create account
               </button>

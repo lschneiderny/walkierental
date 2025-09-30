@@ -43,7 +43,7 @@ export default async function AdminHome() {
         <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-black/60 dark:text-white/60">Active Rentals</span>
-            <Calendar className="h-4 w-4 text-[#00b5b8]" />
+            <Calendar className="h-4 w-4 text-[color:var(--primary)]" />
           </div>
           <div className="text-2xl font-semibold">{activeRentals}</div>
           <p className="text-xs text-black/60 dark:text-white/60 mt-1">Currently out</p>
@@ -52,7 +52,7 @@ export default async function AdminHome() {
         <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-black/60 dark:text-white/60">Total Orders</span>
-            <ShoppingBag className="h-4 w-4 text-[#00b5b8]" />
+            <ShoppingBag className="h-4 w-4 text-[color:var(--primary)]" />
           </div>
           <div className="text-2xl font-semibold">{orderCount}</div>
           <p className="text-xs text-black/60 dark:text-white/60 mt-1">All time</p>
@@ -70,7 +70,7 @@ export default async function AdminHome() {
         <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-black/60 dark:text-white/60">Customers</span>
-            <Users className="h-4 w-4 text-[#00b5b8]" />
+            <Users className="h-4 w-4 text-[color:var(--primary)]" />
           </div>
           <div className="text-2xl font-semibold">{userCount}</div>
           <p className="text-xs text-black/60 dark:text-white/60 mt-1">Registered</p>
@@ -84,7 +84,7 @@ export default async function AdminHome() {
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-[#00b5b8] rounded-full" />
+                <div className="w-2 h-2 bg-[color:var(--primary)] rounded-full" />
                 <span className="text-sm">Rental Equipment</span>
               </div>
               <span className="font-semibold">{rentalProducts}</span>
@@ -133,28 +133,28 @@ export default async function AdminHome() {
             href="/admin/products/new"
             className="border border-black/10 dark:border-white/10 rounded-xl p-4 hover:shadow-sm transition-shadow text-center"
           >
-            <Box className="h-6 w-6 mx-auto mb-2 text-[#00b5b8]" />
+            <Box className="h-6 w-6 mx-auto mb-2 text-[color:var(--primary)]" />
             <p className="text-sm font-medium">Add Product</p>
           </Link>
           <Link
             href="/admin/packages/new"
             className="border border-black/10 dark:border-white/10 rounded-xl p-4 hover:shadow-sm transition-shadow text-center"
           >
-            <Package className="h-6 w-6 mx-auto mb-2 text-[#00b5b8]" />
+            <Package className="h-6 w-6 mx-auto mb-2 text-[color:var(--primary)]" />
             <p className="text-sm font-medium">Create Package</p>
           </Link>
           <Link
             href="/admin/inventory"
             className="border border-black/10 dark:border-white/10 rounded-xl p-4 hover:shadow-sm transition-shadow text-center"
           >
-            <Calendar className="h-6 w-6 mx-auto mb-2 text-[#00b5b8]" />
+            <Calendar className="h-6 w-6 mx-auto mb-2 text-[color:var(--primary)]" />
             <p className="text-sm font-medium">Check Inventory</p>
           </Link>
           <Link
             href="/admin/orders"
             className="border border-black/10 dark:border-white/10 rounded-xl p-4 hover:shadow-sm transition-shadow text-center"
           >
-            <ShoppingBag className="h-6 w-6 mx-auto mb-2 text-[#00b5b8]" />
+            <ShoppingBag className="h-6 w-6 mx-auto mb-2 text-[color:var(--primary)]" />
             <p className="text-sm font-medium">View Orders</p>
           </Link>
         </div>
@@ -164,7 +164,7 @@ export default async function AdminHome() {
       <div>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold">Recent Orders</h2>
-          <Link href="/admin/orders" className="text-sm text-[#00b5b8] hover:text-[#009a9d]">
+          <Link href="/admin/orders" className="text-sm text-[color:var(--primary)] hover:text-[color:var(--primary-hover)]">
             View all →
           </Link>
         </div>

@@ -23,7 +23,7 @@ export default async function AdminProducts() {
         </div>
         <Link 
           href="/admin/products/new" 
-          className="flex items-center gap-2 rounded-lg bg-[#00b5b8] hover:bg-[#009a9d] text-white px-4 py-2.5 text-sm font-medium transition-colors"
+          className="flex items-center gap-2 rounded-lg bg-[color:var(--primary)] hover:bg-[#009a9d] text-white px-4 py-2.5 text-sm font-medium transition-colors"
         >
           <Plus className="h-4 w-4" />
           Add Product
@@ -35,7 +35,7 @@ export default async function AdminProducts() {
         <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-black/60 dark:text-white/60">Rental Equipment</span>
-            <Box className="h-4 w-4 text-[#00b5b8]" />
+            <Box className="h-4 w-4 text-[color:var(--primary)]" />
           </div>
           <div className="text-2xl font-semibold">{rentalCount}</div>
           <p className="text-xs text-black/60 dark:text-white/60 mt-1">Products for rent</p>
@@ -147,7 +147,7 @@ export default async function AdminProducts() {
                 <div className="flex items-center gap-2">
                   <Link
                     href={`/admin/products/${product.id}/edit`}
-                    className="p-1.5 text-black/60 dark:text-white/60 hover:text-[#00b5b8] hover:bg-[#00b5b8]/10 rounded transition-colors"
+                    className="p-1.5 text-black/60 dark:text-white/60 hover:text-[color:var(--primary)] hover:bg-[color:var(--primary)]/10 rounded transition-colors"
                     title="Edit product"
                   >
                     <Edit className="h-4 w-4" />
@@ -172,7 +172,7 @@ export default async function AdminProducts() {
           <p className="text-sm text-black/40 dark:text-white/40 mb-4">Create your first product to get started</p>
           <Link
             href="/admin/products/new"
-            className="inline-flex items-center gap-2 rounded-lg bg-[#00b5b8] hover:bg-[#009a9d] text-white px-4 py-2 text-sm font-medium transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-[color:var(--primary)] hover:bg-[#009a9d] text-white px-4 py-2 text-sm font-medium transition-colors"
           >
             <Plus className="h-4 w-4" />
             Add Product

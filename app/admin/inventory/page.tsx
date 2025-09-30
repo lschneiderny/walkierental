@@ -47,7 +47,7 @@ export default async function InventoryPage() {
         <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-black/60 dark:text-white/60">Total Units</span>
-            <Package className="h-4 w-4 text-[#00b5b8]" />
+            <Package className="h-4 w-4 text-[color:var(--primary)]" />
           </div>
           <div className="text-2xl font-semibold">{totalInventory}</div>
           <p className="text-xs text-black/60 dark:text-white/60 mt-1">Across all products</p>
@@ -163,7 +163,7 @@ export default async function InventoryPage() {
                   </td>
                   <td className="p-4">
                     <div className="flex items-center justify-end gap-2">
-                      <button className="text-sm text-[#00b5b8] hover:text-[#009a9d]">
+                      <button className="text-sm text-[color:var(--primary)] hover:text-[color:var(--primary-hover)]">
                         View Details
                       </button>
                     </div>
@@ -177,7 +177,7 @@ export default async function InventoryPage() {
           <div className="p-8 text-center">
             <Package className="h-12 w-12 text-black/20 dark:text-white/20 mx-auto mb-3" />
             <p className="text-sm text-black/60 dark:text-white/60">No rental products in inventory</p>
-            <Link href="/admin/products/new" className="text-sm text-[#00b5b8] hover:text-[#009a9d] mt-2 inline-block">
+            <Link href="/admin/products/new" className="text-sm text-[color:var(--primary)] hover:text-[color:var(--primary-hover)] mt-2 inline-block">
               Add your first product →
             </Link>
           </div>

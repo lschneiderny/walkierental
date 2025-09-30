@@ -1,12 +1,51 @@
 @import "tailwindcss";
 
 :root {
+  /* Base colors */
   --background: #ffffff;
-  --foreground: #1a1a1a;
-  --primary: #00b5b8; /* Teal/turquoise */
-  --primary-dark: #009699;
-  --accent: #5cb85c; /* Green for CTAs */
-  --accent-hover: #4cae4c;
+  --foreground: #0f172a;
+  
+  /* Primary brand color - Modern blue */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-light: #dbeafe;
+  
+  /* Accent color - Vibrant indigo */
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-light: #e0e7ff;
+  
+  /* Success color */
+  --success: #10b981;
+  --success-hover: #059669;
+  --success-light: #d1fae5;
+  
+  /* Warning color */
+  --warning: #f59e0b;
+  --warning-hover: #d97706;
+  --warning-light: #fef3c7;
+  
+  /* Error color */
+  --error: #ef4444;
+  --error-hover: #dc2626;
+  --error-light: #fee2e2;
+  
+  /* Neutral colors */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  
+  /* Border and surface colors */
+  --border: var(--neutral-200);
+  --surface: var(--neutral-50);
+  --surface-hover: var(--neutral-100);
 }
 
 @theme inline {
@@ -20,12 +59,51 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --primary: #00c9cc;
-    --primary-dark: #00a8ab;
-    --accent: #6ec76e;
-    --accent-hover: #5cb85c;
+    /* Base colors */
+    --background: #0f172a;
+    --foreground: #f1f5f9;
+    
+    /* Primary brand color - Lighter blue for dark mode */
+    --primary: #60a5fa;
+    --primary-hover: #3b82f6;
+    --primary-light: #1e3a8a;
+    
+    /* Accent color - Lighter indigo */
+    --accent: #818cf8;
+    --accent-hover: #6366f1;
+    --accent-light: #312e81;
+    
+    /* Success color */
+    --success: #34d399;
+    --success-hover: #10b981;
+    --success-light: #064e3b;
+    
+    /* Warning color */
+    --warning: #fbbf24;
+    --warning-hover: #f59e0b;
+    --warning-light: #78350f;
+    
+    /* Error color */
+    --error: #f87171;
+    --error-hover: #ef4444;
+    --error-light: #7f1d1d;
+    
+    /* Neutral colors for dark mode */
+    --neutral-50: #1e293b;
+    --neutral-100: #334155;
+    --neutral-200: #475569;
+    --neutral-300: #64748b;
+    --neutral-400: #94a3b8;
+    --neutral-500: #cbd5e1;
+    --neutral-600: #e2e8f0;
+    --neutral-700: #f1f5f9;
+    --neutral-800: #f8fafc;
+    --neutral-900: #ffffff;
+    
+    /* Border and surface colors */
+    --border: var(--neutral-200);
+    --surface: var(--neutral-100);
+    --surface-hover: var(--neutral-200);
   }
 }
 
