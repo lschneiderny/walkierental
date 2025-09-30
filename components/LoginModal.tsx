@@ -88,7 +88,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[#00b5b8] focus:border-[#00b5b8]"
                 required
               />
             </div>
@@ -99,7 +99,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-transparent focus:outline-none focus:ring-2 focus:ring-[#00b5b8] focus:border-[#00b5b8]"
                 required
               />
             </div>
@@ -111,7 +111,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-black dark:bg-white text-white dark:text-black font-medium py-2 rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+              className="w-full bg-[#5cb85c] hover:bg-[#4cae4c] text-white font-semibold py-2 rounded transition-colors disabled:opacity-50 uppercase tracking-wide text-sm"
             >
               {loading ? "Signing in..." : "Sign in"}
             </button>
@@ -136,7 +136,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   onClose();
                   router.push("/register");
                 }}
-                className="text-orange-600 dark:text-orange-500 hover:underline font-medium"
+                className="text-[#00b5b8] dark:text-[#00c9cc] hover:underline font-medium"
               >
                 Create account
               </button>

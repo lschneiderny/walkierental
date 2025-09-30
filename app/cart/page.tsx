@@ -59,7 +59,7 @@ export default async function CartPage() {
             <p className="font-medium">${String(subtotal.toFixed(2))}</p>
           </div>
           <form action={checkout}>
-            <button className="rounded-lg bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm">
+            <button className="bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-6 py-3 rounded text-sm font-semibold uppercase tracking-wide transition-colors">
               Checkout
             </button>
           </form>

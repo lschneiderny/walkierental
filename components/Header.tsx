@@ -27,10 +27,10 @@ export default function Header() {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-black/10 dark:border-white/10 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full bg-white dark:bg-gray-900 shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="text-lg font-semibold">WalkieRentals</Link>
+        <div className="flex items-center gap-6">
+          <Link href="/" className="text-xl font-bold text-[#00b5b8] dark:text-[#00c9cc]">walkierentals</Link>
           <nav className="hidden md:flex items-center gap-1">
             <NavLink href="/rentals">Rentals</NavLink>
             <NavLink href="/packages">Packages</NavLink>

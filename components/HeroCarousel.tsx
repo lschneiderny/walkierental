@@ -89,7 +89,7 @@ export default function HeroCarousel() {
                 <p className="text-lg md:text-xl text-black/70 dark:text-white/70 mb-6">
                   Reliable two-way radios for events, productions, and crews
                 </p>
-                <Link href="/rentals" className="inline-block rounded-lg bg-black text-white dark:bg-white dark:text-black px-6 py-3 text-sm font-medium">
+                <Link href="/rentals" className="inline-block rounded bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
                   Browse Rentals
                 </Link>
               </div>
@@ -102,7 +102,7 @@ export default function HeroCarousel() {
                 <p className="text-lg md:text-xl text-black/70 dark:text-white/70 mb-6">
                   Pre-configured bundles for small events to large productions
                 </p>
-                <Link href="/packages" className="inline-block rounded-lg bg-black text-white dark:bg-white dark:text-black px-6 py-3 text-sm font-medium">
+                <Link href="/packages" className="inline-block rounded bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
                   View Packages
                 </Link>
               </div>
@@ -115,7 +115,7 @@ export default function HeroCarousel() {
                 <p className="text-lg md:text-xl text-black/70 dark:text-white/70 mb-6">
                   Earpieces, belt clips, and more for purchase
                 </p>
-                <Link href="/accessories" className="inline-block rounded-lg bg-black text-white dark:bg-white dark:text-black px-6 py-3 text-sm font-medium">
+                <Link href="/accessories" className="inline-block rounded bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
                   Shop Accessories
                 </Link>
               </div>

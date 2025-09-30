@@ -9,8 +9,8 @@ export default function AddToCartButton({ productId, kind, quantity = 1 }: { pro
     });
   };
   return (
-    <button onClick={add} className="mt-2 rounded bg-black text-white dark:bg-white dark:text-black px-3 py-2 text-sm">
-      Add to cart
+    <button onClick={add} className="w-full bg-[#5cb85c] hover:bg-[#4cae4c] text-white px-4 py-2 rounded text-xs font-semibold uppercase tracking-wide transition-colors">
+      Add to Cart
     </button>
   );
 }

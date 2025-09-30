@@ -2,12 +2,18 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #1a1a1a;
+  --primary: #00b5b8; /* Teal/turquoise */
+  --primary-dark: #009699;
+  --accent: #5cb85c; /* Green for CTAs */
+  --accent-hover: #4cae4c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,6 +22,10 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #00c9cc;
+    --primary-dark: #00a8ab;
+    --accent: #6ec76e;
+    --accent-hover: #5cb85c;
   }
 }
 
