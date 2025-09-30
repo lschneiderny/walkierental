@@ -3,11 +3,12 @@ import { notFound } from "next/navigation";
 import AvailabilityWidget from "./availability-widget";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function RentalDetailPage({ params }: Props) {
-  const product = await prisma.product.findUnique({ where: { slug: params.slug } });
+  const { slug } = await params;
+  const product = await prisma.product.findUnique({ where: { slug } });
   if (!product || product.type !== "RENTAL") return notFound();
 
   return (

@@ -8,6 +8,7 @@ const CreatePackageSchema = z.object({
   slug: z.string().min(2),
   description: z.string().optional().nullable(),
   dailyRate: z.coerce.number().min(0),
+  imageUrl: z.string().optional().nullable(),
   // items is a JSON string: [{ productId: string, quantity: number }]
   items: z.string().optional(),
 });
@@ -26,6 +27,7 @@ export async function createPackage(formData: FormData) {
       slug: data.slug,
       description: data.description || undefined,
       dailyRate: data.dailyRate,
+      imageUrl: data.imageUrl || undefined,
     },
   });
 
