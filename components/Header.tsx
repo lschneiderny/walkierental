@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import CartButton from "@/components/CartButton";
+import LoginModal from "@/components/LoginModal";
 
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
   const pathname = usePathname();
@@ -22,6 +24,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 export default function Header() {
   const { data: session } = useSession();
   const isAdmin = session?.user?.role === "ADMIN";
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-black/10 dark:border-white/10 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -47,13 +50,14 @@ export default function Header() {
           ) : (
             <button
               className="px-3 py-2 rounded-md text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10"
-              onClick={() => signIn()}
+              onClick={() => setLoginModalOpen(true)}
             >
               Sign in
             </button>
           )}
         </div>
       </div>
+      <LoginModal isOpen={loginModalOpen} onClose={() => setLoginModalOpen(false)} />
     </header>
   );
 }
