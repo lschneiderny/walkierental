@@ -31,6 +31,9 @@ const nextConfig: NextConfig = {
   // Generate standalone output for Docker/serverless
   output: 'standalone',
   
+  // Explicitly set workspace root to silence lockfile warning
+  outputFileTracingRoot: __dirname,
+  
   // Experimental features
   experimental: {
     // Optimize package imports
