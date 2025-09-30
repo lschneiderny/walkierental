@@ -72,15 +72,16 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div
-      data-carousel='{
-        "loadingClasses": "opacity-0",
-        "dotsItemClasses": "carousel-box carousel-active:bg-primary"
-      }' 
-      className="relative w-full"
-    >
-      <div className="carousel h-96 md:h-[32rem]">
-        <div className="carousel-body h-full opacity-0">
+    <div className="mx-4 sm:mx-6 lg:mx-8 my-8">
+      <div
+        data-carousel='{
+          "loadingClasses": "opacity-0",
+          "dotsItemClasses": "carousel-box carousel-active:bg-primary"
+        }' 
+        className="relative w-full"
+      >
+        <div className="carousel h-96 md:h-[32rem] rounded-2xl overflow-hidden">
+          <div className="carousel-body h-full opacity-0">
           <div className="carousel-slide">
             <div className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 flex h-full justify-center items-center p-6">
               <div className="text-center max-w-3xl">
@@ -123,20 +124,21 @@ export default function HeroCarousel() {
         </div>
       </div>
 
-      <button type="button" className="carousel-prev absolute top-1/2 -translate-y-1/2 start-5 max-sm:start-3 carousel-disabled:opacity-50 w-10 h-10 bg-white dark:bg-gray-800 flex items-center justify-center rounded-full shadow-lg">
+        <button type="button" className="carousel-prev absolute top-1/2 -translate-y-1/2 start-5 max-sm:start-3 carousel-disabled:opacity-50 w-10 h-10 bg-white dark:bg-gray-800 flex items-center justify-center rounded-full shadow-lg">
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
         <span className="sr-only">Previous</span>
       </button>
-      <button type="button" className="carousel-next absolute top-1/2 -translate-y-1/2 end-5 max-sm:end-3 carousel-disabled:opacity-50 w-10 h-10 bg-white dark:bg-gray-800 flex items-center justify-center rounded-full shadow-lg">
+        <button type="button" className="carousel-next absolute top-1/2 -translate-y-1/2 end-5 max-sm:end-3 carousel-disabled:opacity-50 w-10 h-10 bg-white dark:bg-gray-800 flex items-center justify-center rounded-full shadow-lg">
         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
         <span className="sr-only">Next</span>
       </button>
 
-      <div className="carousel-pagination absolute bottom-3 end-0 start-0 flex justify-center gap-3"></div>
+        <div className="carousel-pagination absolute bottom-3 end-0 start-0 flex justify-center gap-3"></div>
+      </div>
     </div>
   );
 }
