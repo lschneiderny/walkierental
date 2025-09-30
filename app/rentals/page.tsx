@@ -17,7 +17,7 @@ export default async function RentalsPage() {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((p) => (
-          <Link key={p.id} href={`/rentals/${p.slug}`} className="border border-black/10 dark:border-white/10 rounded-lg p-4 hover:shadow-sm">
+          <Link key={p.id} href={`/rentals/${p.slug}`} className="border border-black/10 dark:border-white/10 rounded-xl p-4 hover:shadow-sm transition-shadow">
             <div className="aspect-[4/3] bg-black/5 dark:bg-white/10 rounded mb-3 overflow-hidden" />
             <h2 className="font-medium">{p.name}</h2>
             {p.dailyRate && (

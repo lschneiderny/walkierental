@@ -26,7 +26,7 @@ export default async function PackageDetailPage({ params }: Props) {
           </ul>
         </div>
         <div className="md:col-span-1">
-          <div className="border border-black/10 dark:border-white/10 rounded-lg p-4">
+          <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
             <p className="text-lg font-medium mb-3">${String(pkg.dailyRate)} / day</p>
             <p className="text-sm text-black/70 dark:text-white/70">
               Availability is based on the included items. Contact us or request a quote to confirm your dates.

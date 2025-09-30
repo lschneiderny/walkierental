@@ -15,7 +15,7 @@ export default function ItemsPicker({ rentals }: { rentals: { id: string; name: 
   };
 
   return (
-    <fieldset className="border rounded p-4">
+    <fieldset className="border border-black/10 dark:border-white/10 rounded-lg p-4">
       <legend className="text-sm">Include rental items</legend>
       <p className="text-xs text-black/60 dark:text-white/60 mb-2">
         Select items and set quantities, then click "Add selected" to populate the items JSON.

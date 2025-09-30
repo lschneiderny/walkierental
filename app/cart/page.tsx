@@ -35,7 +35,7 @@ export default async function CartPage() {
       ) : (
         <div className="space-y-4">
           {rows.map((r) => (
-            <div key={r.item.id} className="border border-black/10 dark:border-white/10 rounded p-4">
+            <div key={r.item.id} className="border border-black/10 dark:border-white/10 rounded-xl p-4">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="font-medium">{r.product?.name || "Unknown"}</p>
@@ -59,7 +59,7 @@ export default async function CartPage() {
             <p className="font-medium">${String(subtotal.toFixed(2))}</p>
           </div>
           <form action={checkout}>
-            <button className="rounded bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm">
+            <button className="rounded-lg bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm">
               Checkout
             </button>
           </form>

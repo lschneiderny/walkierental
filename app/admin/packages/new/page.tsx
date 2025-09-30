@@ -27,7 +27,7 @@ export default async function NewPackagePage() {
           <input type="number" step="0.01" name="dailyRate" required className="w-full border rounded px-3 py-2 bg-transparent" />
         </div>
         <ItemsPicker rentals={rentals.map(r => ({ id: r.id, name: r.name }))} />
-        <button className="rounded bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm">Create</button>
+        <button className="rounded-lg bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm">Create</button>
       </form>
     </div>
   );

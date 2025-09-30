@@ -19,7 +19,7 @@ export default async function RentalDetailPage({ params }: Props) {
           <p className="text-sm text-black/70 dark:text-white/70">{product.description}</p>
         </div>
         <div className="md:col-span-1">
-          <div className="border border-black/10 dark:border-white/10 rounded-lg p-4">
+          <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
             {product.dailyRate && (
               <p className="text-lg font-medium mb-3">${String(product.dailyRate)} / day</p>
             )}

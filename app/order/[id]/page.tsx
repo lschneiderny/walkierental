@@ -18,7 +18,7 @@ export default async function OrderConfirmationPage({ params }: Props) {
       <p className="text-sm text-black/70 dark:text-white/70 mb-6">Order ID: {order.id}</p>
       <div className="space-y-3">
         {order.items.map((it) => (
-          <div key={it.id} className="border border-black/10 dark:border-white/10 rounded p-4">
+          <div key={it.id} className="border border-black/10 dark:border-white/10 rounded-xl p-4">
             <div className="flex items-center justify-between">
               <div>
                 <p className="font-medium">{it.product.name}</p>
