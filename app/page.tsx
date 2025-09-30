@@ -1,21 +1,14 @@
 import Link from "next/link";
+import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 className="text-3xl font-semibold tracking-tight">Professional walkie talkie rentals for events and crews</h1>
-          <p className="mt-4 text-black/70 dark:text-white/70">
-            Rent reliable two-way radios and curated packages. Accessories are available for purchase. Fast turnaround, clean UX.
-          </p>
-          <div className="mt-6 flex gap-3">
-            <Link href="/rentals" className="rounded bg-black text-white dark:bg-white dark:text-black px-4 py-2 text-sm">Browse rentals</Link>
-            <Link href="/packages" className="rounded border border-black/10 dark:border-white/20 px-4 py-2 text-sm">View packages</Link>
-          </div>
-        </div>
-        <div className="aspect-[4/3] bg-black/5 dark:bg-white/10 rounded" />
-      </div>
+    <div>
+      {/* Hero Carousel */}
+      <HeroCarousel />
+      
+      {/* Main content */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
       <section className="mt-16">
         <h2 className="text-xl font-medium mb-4">How it works</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -50,6 +43,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }
