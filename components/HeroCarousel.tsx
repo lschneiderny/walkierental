@@ -72,7 +72,7 @@ export default function HeroCarousel() {
   }, []);
 
   return (
-    <div className="mx-4 sm:mx-6 lg:mx-8 my-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
       <div
         data-carousel='{
           "loadingClasses": "opacity-0",
