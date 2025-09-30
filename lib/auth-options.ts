@@ -27,21 +27,22 @@ export const authOptions: NextAuthOptions = {
           name: user.name ?? user.email,
           email: user.email,
           role: user.role,
-        } as any;
+        };
       },
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.role = (user as any).role;
+        const userWithRole = user as { role?: "USER" | "ADMIN" };
+        token.role = userWithRole.role || "USER";
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        (session.user as any).id = token.sub;
-        (session.user as any).role = (token as any).role;
+        session.user.id = token.sub;
+        session.user.role = token.role || "USER";
       }
       return session;
     },

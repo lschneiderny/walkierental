@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import Link from "next/link";
-import { Calendar, Package, AlertCircle, CheckCircle, Clock, ArrowUp, ArrowDown } from "lucide-react";
+import { Calendar, Package, AlertCircle, CheckCircle, Clock } from "lucide-react";
 
 export default async function InventoryPage() {
   const products = await prisma.product.findMany({

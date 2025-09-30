@@ -15,7 +15,7 @@ export default function SignInPage() {
     setError("");
     const res = await signIn("credentials", { email, password, redirect: true, callbackUrl: "/" });
     // next-auth handles redirect on success
-    if ((res as any)?.error) setError("Invalid email or password");
+    if (res?.error) setError("Invalid email or password");
     setLoading(false);
   };
 

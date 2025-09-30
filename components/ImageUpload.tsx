@@ -42,7 +42,7 @@ export default function ImageUpload({ value, onChange, onRemove }: ImageUploadPr
       ) : (
         <UploadDropzone
           endpoint="imageUploader"
-          onClientUploadComplete={(res: any) => {
+          onClientUploadComplete={(res) => {
             if (res?.[0]?.url) {
               onChange(res[0].url);
             }

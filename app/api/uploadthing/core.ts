@@ -20,7 +20,7 @@ export const ourFileRouter = {
     },
   })
     // Set permissions and file types for this FileRoute
-    .middleware(async ({ req }) => {
+    .middleware(async () => {
       // This code runs on your server before upload
       const session = await getServerSession(authOptions);
 
@@ -28,14 +28,14 @@ export const ourFileRouter = {
       if (!session?.user) throw new UploadThingError("Unauthorized");
       
       // Check if user is admin for admin uploads
-      const userRole = (session.user as any).role;
+      const userRole = (session.user as { role?: string }).role;
       if (userRole !== "ADMIN") {
         throw new UploadThingError("Only admins can upload images");
       }
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { 
-        userId: (session.user as any).id,
+        userId: (session.user as { id?: string }).id,
         userEmail: session.user.email,
         userRole: userRole
       };

@@ -1,8 +1,6 @@
 "use server";
-
-import { cookies } from "next/headers";
 import prisma from "@/lib/prisma";
-import { getCart, setCart, clearCart } from "@/lib/cart";
+import { getCart, clearCart } from "@/lib/cart";
 import { authOptions } from "@/lib/auth-options";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
@@ -39,7 +37,7 @@ export async function checkout() {
       if (!p) continue;
       const isRental = it.kind === "RENTAL";
       const unit = isRental ? (p.dailyRate ?? 0) : (p.price ?? 0);
-      const item = await tx.orderItem.create({
+      await tx.orderItem.create({
         data: {
           orderId: created.id,
           productId: p.id,

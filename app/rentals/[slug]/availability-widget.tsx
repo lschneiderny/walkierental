@@ -28,7 +28,7 @@ export default function AvailabilityWidget({ productId }: { productId: string })
         setResult(`Only ${available} units available for these dates.`);
         setCanAdd(false);
       }
-    } catch (e: any) {
+    } catch {
       setResult("Failed to check availability.");
     } finally {
       setLoading(false);

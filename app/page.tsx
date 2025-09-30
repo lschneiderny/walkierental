@@ -1,4 +1,3 @@
-import Link from "next/link";
 import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Home() {

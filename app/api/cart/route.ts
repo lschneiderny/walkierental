@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
     cart.items.push(item);
     await setCart(cart);
     return NextResponse.json({ ok: true, count: cart.items.length });
-  } catch (e: any) {
+  } catch {
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }
@@ -41,7 +41,7 @@ export async function PATCH(req: NextRequest) {
     if (endDate != null) cart.items[idx].endDate = endDate;
     await setCart(cart);
     return NextResponse.json({ ok: true });
-  } catch (e: any) {
+  } catch {
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }

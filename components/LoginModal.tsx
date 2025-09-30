@@ -130,7 +130,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
           {/* Register link */}
           <div className="text-center">
             <p className="text-sm text-black/60 dark:text-white/60">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <button
                 onClick={() => {
                   onClose();

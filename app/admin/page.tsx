@@ -1,10 +1,10 @@
 import Link from "next/link";
 import prisma from "@/lib/prisma";
-import { Package, ShoppingBag, Users, TrendingUp, Box, ArrowUp, ArrowDown, Calendar } from "lucide-react";
+import { Package, ShoppingBag, Users, Box, Calendar } from "lucide-react";
 
 export default async function AdminHome() {
   // Fetch statistics
-  const [productCount, packageCount, orderCount, userCount, rentalProducts, accessoryProducts] = await Promise.all([
+  const [, packageCount, orderCount, userCount, rentalProducts, accessoryProducts] = await Promise.all([
     prisma.product.count(),
     prisma.package.count(),
     prisma.order.count(),

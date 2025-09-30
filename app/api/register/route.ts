@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
     const passwordHash = await bcrypt.hash(password, 10);
     await prisma.user.create({ data: { email, name, passwordHash, role: "USER" } });
     return NextResponse.json({ ok: true });
-  } catch (e: any) {
+  } catch {
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }

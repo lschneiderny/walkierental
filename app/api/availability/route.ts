@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
       new Date(endDate)
     );
     return NextResponse.json({ available });
-  } catch (e: any) {
+  } catch {
     return NextResponse.json({ error: "Failed" }, { status: 500 });
   }
 }
