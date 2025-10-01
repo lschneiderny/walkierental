@@ -1,12 +1,13 @@
-// Prisma schema for walkierentals (SQLite)
+// Prisma schema for walkierentals (PostgreSQL with Prisma Accelerate)
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("PRISMA_DATABASE_URL") // uses Prisma Accelerate
+  directUrl = env("POSTGRES_URL") // direct connection for migrations
 }
 
 model User {
