@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import CartButton from "@/components/CartButton";
@@ -40,9 +41,18 @@ export default function Header() {
               <div className="flex items-center">
                 <Link 
                   href="/" 
-                  className="text-xl font-bold text-gray-900 dark:text-white no-underline"
+                  className="flex items-center gap-2 no-underline"
                 >
-                  WalkieRentals
+                  <Image 
+                    src="https://7eeuu4wend.ufs.sh/f/hytIev0arWPe7HYbKt58nlvh0qWXKtCLQzmT6w239gbfxkoF"
+                    alt="WalkieRentals Logo"
+                    width={40}
+                    height={40}
+                    className="object-contain"
+                  />
+                  <span className="text-xl font-bold text-gray-900 dark:text-white">
+                    WalkieRentals
+                  </span>
                 </Link>
               </div>
 
