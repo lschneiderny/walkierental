@@ -2,12 +2,12 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "/app/generated/prisma-client"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("PRISMA_DATABASE_URL") // uses Prisma Accelerate
-  directUrl = env("POSTGRES_URL") // direct connection for migrations
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
