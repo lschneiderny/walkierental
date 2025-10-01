@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { Product } from "@prisma/client";
 import AddToCartButton from "@/components/AddToCartButton";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +17,7 @@ export default async function AccessoriesPage() {
         Accessories are available for sale. Rental equipment and packages take priority.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((p) => (
+        {products.map((p: Product) => (
           <div key={p.id} className="border border-black/10 dark:border-white/10 rounded-xl p-4">
             <div className="aspect-[4/3] bg-black/5 dark:bg-white/10 rounded mb-3 overflow-hidden" />
             <h2 className="font-medium">{p.name}</h2>
