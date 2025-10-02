@@ -211,21 +211,22 @@ export default function NewProductPage() {
         {/* Product Image */}
         <div className="bg-black/5 dark:bg-white/5 rounded-xl p-6 space-y-6">
           <h2 className="text-lg font-semibold">Product Image</h2>
+          <button>
           <UploadButton
             endpoint="imageUploader"
             onClientUploadComplete={(res) => {
               // Save the uploaded file URL to imageUrl
               console.log("Files: ", res);
-              if (res?.[0]?.ufsUrl) {
-                setImageUrl(res[0].ufsUrl);
-                alert("Upload Completed");
-              }
+              setImageUrl(res[0].ufsUrl);
+              alert("Upload Completed");
+              
             }}
             onUploadError={(error: Error) => {
               // Do something with the error.
               alert(`ERROR! ${error.message}`);
             }}
           />
+          </button>
         </div>
 
         {/* Form Actions */}
