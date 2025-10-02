@@ -3,9 +3,17 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { createProduct } from "../actions";
-import ImageUpload from "@/components/ImageUpload";
-import { ArrowLeft, Save, Package, DollarSign, Hash, Layers } from "lucide-react";
+
+import {
+  ArrowLeft,
+  Save,
+  Package,
+  DollarSign,
+  Hash,
+  Layers,
+} from "lucide-react";
 import Link from "next/link";
+import { UploadButton } from "@/lib/uploadthing";
 
 export default function NewProductPage() {
   const router = useRouter();
@@ -39,7 +47,9 @@ export default function NewProductPage() {
           Back to Products
         </Link>
         <h1 className="text-3xl font-bold">Create New Product</h1>
-        <p className="text-foreground/60 mt-2">Add a new rental product or accessory to your inventory</p>
+        <p className="text-foreground/60 mt-2">
+          Add a new rental product or accessory to your inventory
+        </p>
       </div>
 
       <form action={handleSubmit} className="space-y-8">
@@ -49,37 +59,45 @@ export default function NewProductPage() {
             <Package className="h-5 w-5 text-primary" />
             <h2 className="text-lg font-semibold">Basic Information</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium mb-2">Product Name *</label>
-              <input 
-                name="name" 
-                required 
+              <label className="block text-sm font-medium mb-2">
+                Product Name *
+              </label>
+              <input
+                name="name"
+                required
                 placeholder="e.g., Motorola T600 H2O"
-                className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" 
+                className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">URL Slug *</label>
-              <input 
-                name="slug" 
-                required 
+              <label className="block text-sm font-medium mb-2">
+                URL Slug *
+              </label>
+              <input
+                name="slug"
+                required
                 placeholder="e.g., motorola-t600-h2o"
                 pattern="[a-z0-9-]+"
-                className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary font-mono text-sm" 
+                className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary font-mono text-sm"
               />
-              <p className="text-xs text-foreground/60 mt-1">Lowercase letters, numbers, and hyphens only</p>
+              <p className="text-xs text-foreground/60 mt-1">
+                Lowercase letters, numbers, and hyphens only
+              </p>
             </div>
           </div>
-          
+
           <div>
-            <label className="block text-sm font-medium mb-2">Description</label>
-            <textarea 
-              name="description" 
+            <label className="block text-sm font-medium mb-2">
+              Description
+            </label>
+            <textarea
+              name="description"
               rows={4}
               placeholder="Describe the product features, specifications, etc."
-              className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none" 
+              className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
             />
           </div>
         </div>
@@ -90,12 +108,14 @@ export default function NewProductPage() {
             <Layers className="h-5 w-5 text-primary" />
             <h2 className="text-lg font-semibold">Product Type & Inventory</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="block text-sm font-medium mb-2">Product Type *</label>
-              <select 
-                name="type" 
+              <label className="block text-sm font-medium mb-2">
+                Product Type *
+              </label>
+              <select
+                name="type"
                 value={productType}
                 onChange={(e) => setProductType(e.target.value)}
                 className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
@@ -108,22 +128,24 @@ export default function NewProductPage() {
               <label className="block text-sm font-medium mb-2">SKU</label>
               <div className="relative">
                 <Hash className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
-                <input 
-                  name="sku" 
+                <input
+                  name="sku"
                   placeholder="Optional"
-                  className="w-full pl-10 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" 
+                  className="w-full pl-10 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Stock Quantity *</label>
-              <input 
-                type="number" 
-                name="stock" 
-                defaultValue={0} 
+              <label className="block text-sm font-medium mb-2">
+                Stock Quantity *
+              </label>
+              <input
+                type="number"
+                name="stock"
+                defaultValue={0}
                 min={0}
                 required
-                className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" 
+                className="w-full border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
               />
             </div>
           </div>
@@ -135,45 +157,53 @@ export default function NewProductPage() {
             <DollarSign className="h-5 w-5 text-primary" />
             <h2 className="text-lg font-semibold">Pricing</h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className={productType !== "RENTAL" ? "opacity-50" : ""}>
               <label className="block text-sm font-medium mb-2">
                 Daily Rental Rate {productType === "RENTAL" && "*"}
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/60">$</span>
-                <input 
-                  type="number" 
-                  step="0.01" 
-                  name="dailyRate" 
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/60">
+                  $
+                </span>
+                <input
+                  type="number"
+                  step="0.01"
+                  name="dailyRate"
                   min={0}
                   disabled={productType !== "RENTAL"}
                   required={productType === "RENTAL"}
                   placeholder="0.00"
-                  className="w-full pl-8 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50" 
+                  className="w-full pl-8 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50"
                 />
               </div>
-              <p className="text-xs text-foreground/60 mt-1">Price per day for rentals</p>
+              <p className="text-xs text-foreground/60 mt-1">
+                Price per day for rentals
+              </p>
             </div>
             <div className={productType !== "ACCESSORY" ? "opacity-50" : ""}>
               <label className="block text-sm font-medium mb-2">
                 Sale Price {productType === "ACCESSORY" && "*"}
               </label>
               <div className="relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/60">$</span>
-                <input 
-                  type="number" 
-                  step="0.01" 
-                  name="price" 
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-foreground/60">
+                  $
+                </span>
+                <input
+                  type="number"
+                  step="0.01"
+                  name="price"
                   min={0}
                   disabled={productType !== "ACCESSORY"}
                   required={productType === "ACCESSORY"}
                   placeholder="0.00"
-                  className="w-full pl-8 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50" 
+                  className="w-full pl-8 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5 bg-transparent focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50"
                 />
               </div>
-              <p className="text-xs text-foreground/60 mt-1">One-time purchase price</p>
+              <p className="text-xs text-foreground/60 mt-1">
+                One-time purchase price
+              </p>
             </div>
           </div>
         </div>
@@ -181,8 +211,21 @@ export default function NewProductPage() {
         {/* Product Image */}
         <div className="bg-black/5 dark:bg-white/5 rounded-xl p-6 space-y-6">
           <h2 className="text-lg font-semibold">Product Image</h2>
-          <ImageUpload value={imageUrl} onChange={setImageUrl} />
-          <input type="hidden" name="imageUrl" value={imageUrl} />
+          <UploadButton
+            endpoint="imageUploader"
+            onClientUploadComplete={(res) => {
+              // Save the uploaded file URL to imageUrl
+              console.log("Files: ", res);
+              if (res?.[0]?.ufsUrl) {
+                setImageUrl(res[0].ufsUrl);
+                alert("Upload Completed");
+              }
+            }}
+            onUploadError={(error: Error) => {
+              // Do something with the error.
+              alert(`ERROR! ${error.message}`);
+            }}
+          />
         </div>
 
         {/* Form Actions */}
@@ -193,7 +236,7 @@ export default function NewProductPage() {
           >
             Cancel
           </Link>
-          <button 
+          <button
             type="submit"
             disabled={isSubmitting}
             className="flex items-center gap-2 px-6 py-2.5 bg-primary hover:bg-primary-dark disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
