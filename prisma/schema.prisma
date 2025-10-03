@@ -23,17 +23,10 @@ model User {
 
 model Product {
   id          String    @id @default(cuid())
-  slug        String    @unique
   name        String
   description String?
   imageUrl    String?
-  type        String
   sku         String?   @unique
-  // For rentals
-  dailyRate   Decimal?
-  // For accessories (sales)
-  price       Decimal?
-  // Stock represents number of units available (for rentals and accessories)
   stock       Int       @default(0)
 
   createdAt   DateTime  @default(now())
@@ -51,7 +44,7 @@ model Package {
   name        String
   description String?
   imageUrl    String?
-  // Price per day for the whole package
+  
   dailyRate   Decimal
 
   createdAt   DateTime   @default(now())
