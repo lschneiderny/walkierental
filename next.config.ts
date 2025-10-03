@@ -44,6 +44,21 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react'],
   },
   
+  // Turbopack configuration
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+    resolveAlias: {
+      '@': './app',
+      '@components': './components',
+      '@lib': './lib',
+    },
+  },
+    
   // Ensure Prisma binaries are included in the build
   webpack: (config, { isServer }) => {
     if (isServer) {
