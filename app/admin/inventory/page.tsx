@@ -4,7 +4,6 @@ import { Calendar, Package, AlertCircle, CheckCircle, Clock } from "lucide-react
 
 export default async function InventoryPage() {
   const products = await prisma.product.findMany({
-    where: { type: "RENTAL" },
     include: {
       reservations: {
         where: {

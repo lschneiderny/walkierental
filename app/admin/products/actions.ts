@@ -29,13 +29,13 @@ export async function createProduct(formData: FormData) {
     data: {
       name: data.name,
       slug: data.slug,
-      description: data.description || undefined,
+      description: data.description ?? "",
       type: data.type,
       sku: data.sku || undefined,
       stock: data.stock,
       dailyRate: isRental ? (data.dailyRate ?? 0) : undefined,
       price: !isRental ? (data.price ?? 0) : undefined,
-      imageUrl: data.imageUrl || undefined,
+      imageUrl: data.imageUrl ?? undefined,
     },
   });
 }

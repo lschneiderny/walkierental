@@ -9,13 +9,16 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { productId, kind, quantity = 1, startDate, endDate } = body || {};
-    if (!productId || !kind) return NextResponse.json({ error: "Missing productId or kind" }, { status: 400 });
+    const { productId, packageId, kind, quantity = 1, startDate, endDate } = body || {};
+    if (!kind) return NextResponse.json({ error: "Missing kind" }, { status: 400 });
+    if (kind === "RENTAL" && !packageId) return NextResponse.json({ error: "Missing packageId for rental" }, { status: 400 });
+    if (kind === "ACCESSORY" && !productId) return NextResponse.json({ error: "Missing productId for accessory" }, { status: 400 });
 
     const cart = await getCart();
     const item: CartItem = {
       id: crypto.randomUUID(),
-      productId: String(productId),
+      productId: productId ? String(productId) : undefined,
+      packageId: packageId ? String(packageId) : undefined,
       kind: kind === "RENTAL" ? "RENTAL" : "ACCESSORY",
       quantity: Number(quantity) || 1,
       startDate,

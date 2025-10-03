@@ -6,14 +6,25 @@ export const dynamic = "force-dynamic";
 
 export default async function CartPage() {
   const cart = await getCart();
-  const productIds = [...new Set(cart.items.map((i) => i.productId))];
-  const products = await prisma.product.findMany({ where: { id: { in: productIds } } });
-  const byId = Object.fromEntries(products.map((p) => [p.id, p]));
+  const productIds = [...new Set(cart.items.map((i) => i.productId).filter(Boolean))] as string[];
+  const packageIds = [...new Set(cart.items.map((i) => i.packageId).filter(Boolean))] as string[];
+  const [products, packages] = await Promise.all([
+    prisma.product.findMany({ where: { id: { in: productIds } } }),
+    prisma.package.findMany({ where: { id: { in: packageIds } } }),
+  ]);
+  const productById = Object.fromEntries(products.map((p) => [p.id, p]));
+  const packageById = Object.fromEntries(packages.map((p) => [p.id, p]));
 
   const rows = cart.items.map((i) => {
-    const p = byId[i.productId];
     const isRental = i.kind === "RENTAL";
-    const unit = isRental ? Number(p?.dailyRate ?? 0) : Number(p?.price ?? 0);
+    let unit = 0;
+    if (isRental) {
+      const pkg = packageById[i.packageId || ""];
+      unit = Number(pkg?.dailyRate ?? 0);
+    } else {
+      const prod = productById[i.productId || ""];
+      unit = Number(prod?.price ?? 0);
+    }
     let days = 1;
     if (isRental && i.startDate && i.endDate) {
       const s = new Date(i.startDate);
@@ -22,7 +33,8 @@ export default async function CartPage() {
       days = Math.max(1, diff);
     }
     const line = isRental ? unit * days * i.quantity : unit * i.quantity;
-    return { item: i, product: p, unit, days, line };
+    const product = isRental ? packageById[i.packageId || ""] : productById[i.productId || ""];
+    return { item: i, product, unit, days, line };
   });
 
   const subtotal = rows.reduce((acc, r) => acc + r.line, 0);

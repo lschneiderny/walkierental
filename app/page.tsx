@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero Carousel */}
-      <HeroCarousel />
+       <HeroCarousel  />
       
       {/* Main content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

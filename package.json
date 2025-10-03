@@ -2,12 +2,9 @@
   "name": "walkierentals",
   "version": "0.1.0",
   "private": true,
-  "prisma": {
-    "seed": "node ./prisma/seed.mjs"
-  },
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
@@ -18,13 +15,15 @@
   },
   "dependencies": {
     "@prisma/adapter-pg": "^6.16.3",
-    "@prisma/client": "^5",
+    "@prisma/client": "^6.16.3",
+    "@react-hooks-library/core": "^0.6.2",
     "@uploadthing/react": "^7.3.3",
     "@vercel/postgres": "^0.10.0",
     "@vercel/speed-insights": "^1.2.0",
     "bcryptjs": "^2.4.3",
     "date-fns": "^3",
     "lucide-react": "^0.544.0",
+    "motion": "^12.23.22",
     "next": "15.5.4",
     "next-auth": "^4",
     "pg": "^8.16.3",
@@ -43,8 +42,11 @@
     "dotenv": "^16",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
-    "prisma": "^5.22.0",
+    "prisma": "^6.16.3",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
   }
 }

@@ -1,12 +1,13 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
-interface Props { params: { id: string } }
+interface Props { params: Promise<{ id: string }> }
 
 export default async function OrderConfirmationPage({ params }: Props) {
+  const { id } = await params;
   const order = await prisma.order.findUnique({
-    where: { id: params.id },
-    include: { items: { include: { product: true } }, reservations: true, user: true },
+    where: { id },
+    include: { items: { include: { product: true, package: true } }, reservations: true, user: true },
   });
   if (!order) return notFound();
 
@@ -21,7 +22,7 @@ export default async function OrderConfirmationPage({ params }: Props) {
           <div key={it.id} className="border border-black/10 dark:border-white/10 rounded-xl p-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="font-medium">{it.product.name}</p>
+                <p className="font-medium">{it.product?.name || it.package?.name || "Item"}</p>
                 <p className="text-xs text-black/60 dark:text-white/60">
                   {it.rentalStartDate && it.rentalEndDate ? `Rental | ${it.rentalStartDate.toISOString().slice(0,10)} → ${it.rentalEndDate.toISOString().slice(0,10)}` : "Accessory"}
                 </p>

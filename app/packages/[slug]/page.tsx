@@ -1,11 +1,13 @@
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import PackageAvailability from "./availability-widget";
 
-interface Props { params: { slug: string } }
+interface Props { params: Promise<{ slug: string }> }
 
 export default async function PackageDetailPage({ params }: Props) {
+  const { slug } = await params;
   const pkg = await prisma.package.findUnique({
-    where: { slug: params.slug },
+    where: { slug },
     include: { items: { include: { product: true } } },
   });
   if (!pkg) return notFound();
@@ -28,9 +30,7 @@ export default async function PackageDetailPage({ params }: Props) {
         <div className="md:col-span-1">
           <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
             <p className="text-lg font-medium mb-3">${String(pkg.dailyRate)} / day</p>
-            <p className="text-sm text-black/70 dark:text-white/70">
-              Availability is based on the included items. Contact us or request a quote to confirm your dates.
-            </p>
+            <PackageAvailability packageId={pkg.id} />
           </div>
         </div>
       </div>

@@ -40,8 +40,18 @@ const nextConfig: NextConfig = {
   
   // Experimental features
   experimental: {
-    // Optimize package imports
-    optimizePackageImports: ['lucide-react', '@prisma/client'],
+    // Optimize package imports (removed @prisma/client as it conflicts with standalone output)
+    optimizePackageImports: ['lucide-react'],
+  },
+  
+  // Ensure Prisma binaries are included in the build
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = config.externals || [];
+      // Don't externalize @prisma/client to ensure binaries are bundled
+      config.externals = [...config.externals, '@prisma/client'];
+    }
+    return config;
   },
   
   // Headers for security and caching

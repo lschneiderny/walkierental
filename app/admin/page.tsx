@@ -4,13 +4,11 @@ import { Package, ShoppingBag, Users, Box, Calendar } from "lucide-react";
 
 export default async function AdminHome() {
   // Fetch statistics
-  const [, packageCount, orderCount, userCount, rentalProducts, accessoryProducts] = await Promise.all([
+  const [, packageCount, orderCount, userCount] = await Promise.all([
     prisma.product.count(),
     prisma.package.count(),
     prisma.order.count(),
     prisma.user.count(),
-    prisma.product.count({ where: { type: "RENTAL" } }),
-    prisma.product.count({ where: { type: "ACCESSORY" } }),
   ]);
 
   const recentOrders = await prisma.order.findMany({
@@ -85,16 +83,16 @@ export default async function AdminHome() {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-[color:var(--primary)] rounded-full" />
-                <span className="text-sm">Rental Equipment</span>
+              <span className="text-sm">Total Products</span>
               </div>
-              <span className="font-semibold">{rentalProducts}</span>
+              <span className="font-semibold">{await prisma.product.count()}</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-green-500 rounded-full" />
                 <span className="text-sm">Accessories</span>
               </div>
-              <span className="font-semibold">{accessoryProducts}</span>
+              <span className="font-semibold">-</span>
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">

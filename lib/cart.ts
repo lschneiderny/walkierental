@@ -2,7 +2,8 @@ import { cookies } from "next/headers";
 
 export type CartItem = {
   id: string;
-  productId: string;
+  productId?: string; // for accessories/sales
+  packageId?: string; // for rentals
   kind: "RENTAL" | "ACCESSORY";
   quantity: number;
   startDate?: string; // ISO (for RENTAL)

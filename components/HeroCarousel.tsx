@@ -10,7 +10,6 @@ export default function HeroCarousel() {
     const initCarousel = () => {
       const carousel = document.querySelector('[data-carousel]');
       if (!carousel) return;
-      
       const slides = carousel.querySelectorAll('.carousel-slide');
       const prevBtn = carousel.querySelector('.carousel-prev');
       const nextBtn = carousel.querySelector('.carousel-next');
