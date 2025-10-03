@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "WalkieRentals",
-  description: "Walkie talkie rentals and accessories",
+  description: "Professional walkie talkie rental packages",
 };
 
 export default function RootLayout({

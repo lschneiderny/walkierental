@@ -108,19 +108,6 @@ export default function HeroCarousel() {
               </div>
             </div>
           </div>
-          <div className="carousel-slide">
-            <div className="bg-gradient-to-br from-purple-50 to-pink-100 dark:from-gray-800 dark:to-gray-900 flex h-full justify-center items-center p-6">
-              <div className="text-center max-w-3xl">
-                <h2 className="text-3xl md:text-5xl font-bold mb-4">Accessories Available</h2>
-                <p className="text-lg md:text-xl text-black/70 dark:text-white/70 mb-6">
-                  Earpieces, belt clips, and more for purchase
-                </p>
-                <Link href="/accessories" className="inline-block rounded bg-[color:var(--success)] hover:bg-[color:var(--success-hover)] text-white px-8 py-3 text-sm font-semibold uppercase tracking-wide transition-colors">
-                  Shop Accessories
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

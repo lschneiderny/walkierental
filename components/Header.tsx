@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import CartButton from "@/components/CartButton";
 import LoginModal from "@/components/LoginModal";
-import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Header() {
   const { data: session } = useSession();
@@ -18,10 +18,8 @@ export default function Header() {
   const [openDropdowns, setOpenDropdowns] = useState<string[]>([]);
 
   const toggleDropdown = (id: string) => {
-    setOpenDropdowns((prev) => 
-      prev.includes(id) 
-        ? prev.filter(item => item !== id)
-        : [...prev, id]
+    setOpenDropdowns((prev) =>
+      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     );
   };
 
@@ -39,11 +37,8 @@ export default function Header() {
             <div className="flex h-16 items-center justify-between">
               {/* Logo */}
               <div className="flex items-center">
-                <Link 
-                  href="/" 
-                  className="flex items-center gap-2 no-underline"
-                >
-                  <Image 
+                <Link href="/" className="flex items-center gap-2 no-underline">
+                  <Image
                     src="https://7eeuu4wend.ufs.sh/f/hytIev0arWPe7HYbKt58nlvh0qWXKtCLQzmT6w239gbfxkoF"
                     alt="WalkieRentals Logo"
                     width={40}
@@ -59,87 +54,71 @@ export default function Header() {
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center">
                 <ul className="flex items-center gap-2 p-0 text-base">
-                  {/* Rentals Dropdown */}
+                  
+                  {/* Packages Link - Primary */}
                   <li className="relative">
-                    <button
-                      onClick={() => toggleDropdown('rentals')}
-                      className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors
-                        ${isDropdownOpen('rentals') ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white' : 'hover:bg-gray-100 dark:hover:bg-gray-800'}
-                        ${isActive('/rentals') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
-                      `}
-                    >
-                      Rentals
-                      <ChevronDown 
-                        className={`w-4 h-4 transition-transform ${isDropdownOpen('rentals') ? 'rotate-180' : ''}`}
-                      />
-                    </button>
-                    {isDropdownOpen('rentals') && (
-                      <ul className="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 py-1">
-                        <li>
-                          <Link 
-                            href="/rentals"
-                            className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                            onClick={() => setOpenDropdowns([])}
-                          >
-                            All Rentals
-                          </Link>
-                        </li>
-                        <li>
-                          <Link 
-                            href="/rentals?category=handheld"
-                            className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                            onClick={() => setOpenDropdowns([])}
-                          >
-                            Handheld Radios
-                          </Link>
-                        </li>
-                        <li>
-                          <Link 
-                            href="/rentals?category=mobile"
-                            className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                            onClick={() => setOpenDropdowns([])}
-                          >
-                            Mobile Radios
-                          </Link>
-                        </li>
-                      </ul>
-                    )}
-                  </li>
-
-                  {/* Packages Link */}
-                  <li>
-                    <Link 
+                    <Link
                       href="/packages"
                       className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
                         hover:bg-gray-100 dark:hover:bg-gray-800
-                        ${isActive('/packages') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
+                        ${
+                          isActive("/packages")
+                            ? "text-[color:var(--primary)]"
+                            : "text-gray-700 dark:text-gray-300"
+                        }
                       `}
                     >
                       Packages
                     </Link>
                   </li>
 
-                  {/* Accessories Link */}
-                  <li>
-                    <Link 
-                      href="/accessories"
+                  {/* Equipment Link */}
+                  <li className="relative">
+                    <Link
+                      href="/rentals"
                       className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
                         hover:bg-gray-100 dark:hover:bg-gray-800
-                        ${isActive('/accessories') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
+                        ${
+                          isActive("/rentals")
+                            ? "text-[color:var(--primary)]"
+                            : "text-gray-700 dark:text-gray-300"
+                        }
                       `}
                     >
-                      Accessories
+                      Equipment
                     </Link>
                   </li>
+
+                  {/* Quote Link */}
+                  <li className="relative">
+                    <Link
+                      href="/quote"
+                      className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
+                        hover:bg-gray-100 dark:hover:bg-gray-800
+                        ${
+                          isActive("/quote")
+                            ? "text-[color:var(--primary)]"
+                            : "text-gray-700 dark:text-gray-300"
+                        }
+                      `}
+                    >
+                      Request Quote
+                    </Link>
+                  </li>
+
 
                   {/* Admin Link (if admin) */}
                   {isAdmin && (
                     <li>
-                      <Link 
+                      <Link
                         href="/admin"
                         className={`px-3 py-2 rounded-md text-sm font-medium transition-colors
                           hover:bg-gray-100 dark:hover:bg-gray-800
-                          ${isActive('/admin') ? 'text-[color:var(--primary)]' : 'text-gray-700 dark:text-gray-300'}
+                          ${
+                            isActive("/admin")
+                              ? "text-[color:var(--primary)]"
+                              : "text-gray-700 dark:text-gray-300"
+                          }
                         `}
                       >
                         Admin
@@ -152,7 +131,7 @@ export default function Header() {
               {/* Right side actions */}
               <div className="flex items-center gap-4">
                 <CartButton />
-                
+
                 {/* Mobile menu button */}
                 <button
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -189,53 +168,9 @@ export default function Header() {
           {mobileMenuOpen && (
             <div className="md:hidden border-t border-gray-200 dark:border-gray-700">
               <ul className="px-2 pt-2 pb-3 space-y-1">
-                {/* Mobile Rentals Dropdown */}
+                {/* Mobile Packages Link - Primary */}
                 <li>
-                  <button
-                    onClick={() => toggleDropdown('mobile-rentals')}
-                    className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  >
-                    <span>Rentals</span>
-                    <ChevronRight 
-                      className={`w-4 h-4 transition-transform ${isDropdownOpen('mobile-rentals') ? 'rotate-90' : ''}`}
-                    />
-                  </button>
-                  {isDropdownOpen('mobile-rentals') && (
-                    <ul className="ml-4 mt-1 space-y-1">
-                      <li>
-                        <Link 
-                          href="/rentals"
-                          className="block px-3 py-2 rounded-md text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                          onClick={() => { setMobileMenuOpen(false); setOpenDropdowns([]); }}
-                        >
-                          All Rentals
-                        </Link>
-                      </li>
-                      <li>
-                        <Link 
-                          href="/rentals?category=handheld"
-                          className="block px-3 py-2 rounded-md text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                          onClick={() => { setMobileMenuOpen(false); setOpenDropdowns([]); }}
-                        >
-                          Handheld Radios
-                        </Link>
-                      </li>
-                      <li>
-                        <Link 
-                          href="/rentals?category=mobile"
-                          className="block px-3 py-2 rounded-md text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                          onClick={() => { setMobileMenuOpen(false); setOpenDropdowns([]); }}
-                        >
-                          Mobile Radios
-                        </Link>
-                      </li>
-                    </ul>
-                  )}
-                </li>
-
-                {/* Mobile Packages Link */}
-                <li>
-                  <Link 
+                  <Link
                     href="/packages"
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
@@ -244,21 +179,33 @@ export default function Header() {
                   </Link>
                 </li>
 
-                {/* Mobile Accessories Link */}
+                {/* Mobile Equipment Link */}
                 <li>
-                  <Link 
-                    href="/accessories"
+                  <Link
+                    href="/rentals"
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Accessories
+                    Equipment
                   </Link>
                 </li>
+
+                {/* Mobile Quote Link */}
+                <li>
+                  <Link
+                    href="/quote"
+                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Request Quote
+                  </Link>
+                </li>
+
 
                 {/* Mobile Admin Link (if admin) */}
                 {isAdmin && (
                   <li>
-                    <Link 
+                    <Link
                       href="/admin"
                       className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                       onClick={() => setMobileMenuOpen(false)}
@@ -272,14 +219,20 @@ export default function Header() {
                 <li className="pt-2 border-t border-gray-200 dark:border-gray-700">
                   {session?.user ? (
                     <button
-                      onClick={() => { signOut({ callbackUrl: "/" }); setMobileMenuOpen(false); }}
+                      onClick={() => {
+                        signOut({ callbackUrl: "/" });
+                        setMobileMenuOpen(false);
+                      }}
                       className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                     >
                       Sign out
                     </button>
                   ) : (
                     <button
-                      onClick={() => { setLoginModalOpen(true); setMobileMenuOpen(false); }}
+                      onClick={() => {
+                        setLoginModalOpen(true);
+                        setMobileMenuOpen(false);
+                      }}
                       className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                     >
                       Login
@@ -291,8 +244,11 @@ export default function Header() {
           )}
         </nav>
       </header>
-      
-      <LoginModal isOpen={loginModalOpen} onClose={() => setLoginModalOpen(false)} />
+
+      <LoginModal
+        isOpen={loginModalOpen}
+        onClose={() => setLoginModalOpen(false)}
+      />
     </>
   );
 }

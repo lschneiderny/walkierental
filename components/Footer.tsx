@@ -30,10 +30,10 @@ export default function Footer() {
           <div className="md:col-span-1">
             <h3 className="font-semibold text-sm mb-3">Services</h3>
             <ul className="space-y-2 text-sm text-black/60 dark:text-white/60">
-              <li><Link href="/gift-certificates" className="hover:text-black dark:hover:text-white transition-colors">Gift Certificates</Link></li>
-              <li><Link href="/rentals" className="hover:text-black dark:hover:text-white transition-colors">Rental Equipment</Link></li>
               <li><Link href="/packages" className="hover:text-black dark:hover:text-white transition-colors">Rental Packages</Link></li>
-              <li><Link href="/accessories" className="hover:text-black dark:hover:text-white transition-colors">Accessories</Link></li>
+              <li><Link href="/rentals" className="hover:text-black dark:hover:text-white transition-colors">Equipment Rental</Link></li>
+              <li><Link href="/quote" className="hover:text-black dark:hover:text-white transition-colors">Request Quote</Link></li>
+              <li><Link href="/contact" className="hover:text-black dark:hover:text-white transition-colors">Custom Solutions</Link></li>
             </ul>
           </div>
 

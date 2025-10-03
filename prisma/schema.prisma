@@ -9,12 +9,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+
+
 model User {
   id           String   @id @default(cuid())
   email        String   @unique
   name         String?
   passwordHash String
-  role         String   @default("USER")
+  role         Role   @default("USER")
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
@@ -26,14 +28,10 @@ model Product {
   slug        String    @unique
   name        String
   description String?
-  imageUrl    String?
-  type        String
+  imageUrl    String? 
   sku         String?   @unique
-  // For rentals
   dailyRate   Decimal?
-  // For accessories (sales)
-  price       Decimal?
-  // Stock represents number of units available (for rentals and accessories)
+  // Stock represents number of units available for rentals
   stock       Int       @default(0)
 
   createdAt   DateTime  @default(now())

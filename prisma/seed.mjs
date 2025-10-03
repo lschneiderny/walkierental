@@ -73,46 +73,6 @@ async function main() {
     });
   }
 
-  // Seed some accessories
-  const accessories = [
-    {
-      slug: "earpiece-acoustic-tube",
-      name: "Acoustic Tube Earpiece",
-      description: "Clear acoustic tube earpiece for discrete monitoring.",
-      imageUrl: "/earpiece.jpg",
-      type: "ACCESSORY",
-      sku: "ACC-EAR-TUBE",
-      price: 24.0,
-      stock: 200,
-    },
-    {
-      slug: "radio-belt-clip",
-      name: "Radio Belt Clip",
-      description: "Replacement belt clip for compatible radios.",
-      imageUrl: "/belt-clip.jpg",
-      type: "ACCESSORY",
-      sku: "ACC-BELT-CLIP",
-      price: 9.0,
-      stock: 150,
-    },
-  ];
-
-  for (const a of accessories) {
-    await prisma.product.upsert({
-      where: { slug: a.slug },
-      update: {},
-      create: {
-        slug: a.slug,
-        name: a.name,
-        description: a.description,
-        imageUrl: a.imageUrl,
-        type: "ACCESSORY",
-        sku: a.sku,
-        price: a.price,
-        stock: a.stock,
-      },
-    });
-  }
 
   // Create a package (10 radios + earpieces)
   const radio = await prisma.product.findUnique({ where: { slug: "motorola-cp200d" } });
