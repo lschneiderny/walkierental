@@ -1,133 +1,121 @@
-"use client";
+// components/Header.tsx
+'use client';
 
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
-// A modern low-profile sleek header with scroll-based opacity
-// Opacity decreases when scrolling down, increases when scrolling up
 export default function Header() {
-  const [mounted, setMounted] = useState(false);
-  const [isRentalsOpen, setIsRentalsOpen] = useState(false);
-  const [opacity, setOpacity] = useState(1);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  
-  // Track scroll direction and adjust opacity
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (!mounted) return;
-    
-    const scrollDelta = latest - lastScrollY;
-    const scrollDirection = scrollDelta > 0 ? "down" : "up";
-    
-    // Calculate opacity based on scroll direction
-    if (scrollDirection === "down") {
-      // Scrolling down: decrease opacity (min 0.3)
-      const newOpacity = Math.max(0.3, opacity - Math.abs(scrollDelta) * 0.002);
-      setOpacity(newOpacity);
-    } else {
-      // Scrolling up: increase opacity (max 1)
-      const newOpacity = Math.min(1, opacity + Math.abs(scrollDelta) * 0.003);
-      setOpacity(newOpacity);
-    }
-    
-    setLastScrollY(latest);
-  });
-  
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
   useEffect(() => {
-    setMounted(true);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsRentalsOpen(false);
-      }
-    }
-    
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+
+  const navItems = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'About' },
+    { href: '/services', label: 'Walkie Packages' },
+    { href: '/contact', label: 'Contact' },
+  ];
 
   return (
-    <motion.header
-      className="fixed top-0 inset-x-0 z-50 h-14 border-b border-white/10 bg-gradient-to-r from-blue-600/95 via-indigo-600/95 to-purple-600/95 backdrop-blur-xl shadow-2xl"
-      style={{ opacity: mounted ? opacity : 1 }}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-white/80 backdrop-blur-md shadow-md'
+          : 'bg-transparent'
+      }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
-        <div className="flex h-full items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link 
-            href="/" 
-            className="font-bold tracking-tight text-white text-base sm:text-lg hover:scale-105 transition-transform"
+          <Link
+            href="/"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
           >
-            WalkieRentals
+            <Image src="https://7eeuu4wend.ufs.sh/f/hytIev0arWPe7HYbKt58nlvh0qWXKtCLQzmT6w239gbfxkoF" alt="Logo" width={100} height={100} />
           </Link>
 
-          {/* Navigation */}
-          <nav className="flex items-center gap-1 sm:gap-2">
-            <Link 
-              href="/" 
-              className="px-3 py-1.5 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all text-sm font-medium"
-            >
-              Home
-            </Link>
-            
-            {/* Rentals Dropdown */}
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setIsRentalsOpen(!isRentalsOpen)}
-                className="flex items-center gap-1 px-3 py-1.5 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-all text-sm font-medium"
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                  pathname === item.href
+                    ? 'text-blue-600'
+                    : 'text-gray-700'
+                }`}
               >
-                Rentals
-                <ChevronDown 
-                  className={`w-4 h-4 transition-transform duration-200 ${isRentalsOpen ? 'rotate-180' : ''}`} 
-                />
-              </button>
-              
-              {/* Dropdown Menu */}
-              <motion.div
-                initial={false}
-                animate={{
-                  opacity: isRentalsOpen ? 1 : 0,
-                  y: isRentalsOpen ? 0 : -10,
-                  pointerEvents: isRentalsOpen ? "auto" : "none"
-                }}
-                transition={{ duration: 0.2 }}
-                className="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden"
-              >
-                <Link
-                  href="/packages"
-                  onClick={() => setIsRentalsOpen(false)}
-                  className="block px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors font-medium"
-                >
-                  All Packages
-                </Link>
-                <Link
-                  href="/placeholder"
-                  onClick={() => setIsRentalsOpen(false)}
-                  className="block px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors font-medium border-t border-slate-200 dark:border-slate-700"
-                >
-                  Placeholder
-                </Link>
-              </motion.div>
+                {item.label}
+              </Link>
+            ))}
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              Get Started
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <span
+                className={`block h-0.5 w-full bg-gray-700 transition-transform ${
+                  isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-gray-700 transition-opacity ${
+                  isMobileMenuOpen ? 'opacity-0' : ''
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-full bg-gray-700 transition-transform ${
+                  isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+              />
             </div>
-            
-            <Link 
-              href="/quote" 
-              className="px-4 py-1.5 bg-white text-blue-600 hover:bg-blue-50 rounded-lg transition-all text-sm font-semibold shadow-lg hover:shadow-xl ml-2"
-            >
-              View Quote
-            </Link>
-          </nav>
+          </button>
         </div>
-      </div>
-    </motion.header>
+
+        {/* Mobile Menu */}
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isMobileMenuOpen ? 'max-h-64' : 'max-h-0'
+          }`}
+        >
+          <div className="py-4 space-y-3">
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block px-4 py-2 rounded-lg transition-colors ${
+                  pathname === item.href
+                    ? 'bg-blue-50 text-blue-600'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <button className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              Get Started
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
   );
 }

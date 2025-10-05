@@ -21,17 +21,13 @@ export const metadata: Metadata = {
   description: "Walkie talkie rentals and accessories",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Header />
         <Providers>
-          <main className="min-h-screen pt-14">{children}</main>
+          <Header />
+          <main className="min-h-screen">{children}</main>
           <Footer />
         </Providers>
         <SpeedInsights />
