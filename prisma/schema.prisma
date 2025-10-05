@@ -24,13 +24,19 @@ model User {
 
 model Product {
   id          String    @id @default(cuid())
+<<<<<<< HEAD
   slug        String?   @unique
+=======
+>>>>>>> 566cfdee6267dfbdbbcea7ea3941b390dae64e92
   name        String
   description String?
   imageUrl    String?
   sku         String?   @unique
+<<<<<<< HEAD
   dailyRate   Decimal?
   price       Decimal?
+=======
+>>>>>>> 566cfdee6267dfbdbbcea7ea3941b390dae64e92
   stock       Int       @default(0)
   type        String
 
@@ -49,7 +55,7 @@ model Package {
   name        String
   description String?
   imageUrl    String?
-  // Price per day for the whole package
+  
   dailyRate   Decimal
 
   createdAt   DateTime   @default(now())
