@@ -40,39 +40,43 @@ export default async function CartPage() {
   const subtotal = rows.reduce((acc, r) => acc + r.line, 0);
 
   return (
-    <div className="pt-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
+    <div className="pt-16">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+        <h1 className="text-4xl font-bold mb-10">Your Cart</h1>
       {rows.length === 0 ? (
-        <p className="text-sm text-black/60 dark:text-white/60">Your cart is empty.</p>
+        <div className="text-center py-16">
+          <p className="text-lg text-black/60 dark:text-white/60">Your cart is empty.</p>
+        </div>
       ) : (
-        <div className="space-y-4">
-          {rows.map((r) => (
-            <div key={r.item.id} className="border border-black/10 dark:border-white/10 rounded-xl p-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-medium">{r.product?.name || "Unknown"}</p>
-                  <p className="text-xs text-black/60 dark:text-white/60">
-                    {r.item.kind === "RENTAL" ? (
-                      <>Rental{r.item.startDate && r.item.endDate ? ` | ${r.item.startDate} → ${r.item.endDate} (${r.days} days)` : ""}</>
-                    ) : (
-                      <>Accessory</>
-                    )}
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm">Qty: {r.item.quantity}</p>
-                  <p className="text-sm">${String(r.line.toFixed(2))}</p>
+        <div className="space-y-6">
+          <div className="space-y-4">
+            {rows.map((r) => (
+              <div key={r.item.id} className="border border-black/10 dark:border-white/10 rounded-xl p-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-lg mb-1">{r.product?.name || "Unknown"}</p>
+                    <p className="text-sm text-black/60 dark:text-white/60">
+                      {r.item.kind === "RENTAL" ? (
+                        <>Rental{r.item.startDate && r.item.endDate ? ` | ${r.item.startDate} → ${r.item.endDate} (${r.days} days)` : ""}</>
+                      ) : (
+                        <>Accessory</>
+                      )}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-black/60 dark:text-white/60 mb-1">Qty: {r.item.quantity}</p>
+                    <p className="text-lg font-semibold">${String(r.line.toFixed(2))}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-          <div className="flex items-center justify-between border-t pt-4">
-            <p className="font-medium">Subtotal</p>
-            <p className="font-medium">${String(subtotal.toFixed(2))}</p>
+            ))}
+          </div>
+          <div className="flex items-center justify-between border-t border-black/10 dark:border-white/10 pt-6">
+            <p className="text-xl font-semibold">Subtotal</p>
+            <p className="text-2xl font-bold">${String(subtotal.toFixed(2))}</p>
           </div>
           <form action={checkout}>
-            <button className="bg-[color:var(--primary)] hover:bg-[color:var(--primary-hover)] text-white px-6 py-3 rounded text-sm font-semibold uppercase tracking-wide transition-colors">
+            <button className="w-full bg-[color:var(--primary)] hover:bg-[color:var(--primary-hover)] text-white px-6 py-4 rounded-lg text-base font-semibold uppercase tracking-wide transition-colors">
               Checkout
             </button>
           </form>

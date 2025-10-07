@@ -36,23 +36,23 @@ export default function NewProductPage() {
   };
 
   return (
-    <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
+    <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
       {/* Header */}
-      <div className="mb-8">
+      <div className="mb-10">
         <Link
           href="/admin/products"
-          className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground mb-4 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-foreground mb-6 transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Products
         </Link>
-        <h1 className="text-3xl font-bold">Create New Product</h1>
-        <p className="text-foreground/60 mt-2">
+        <h1 className="text-4xl font-bold">Create New Product</h1>
+        <p className="text-base text-foreground/60 mt-3">
           Add a new rental product or accessory to your inventory
         </p>
       </div>
 
-      <form action={handleSubmit} className="space-y-8">
+      <form action={handleSubmit} className="space-y-10">
         {/* Basic Information */}
         <div className="bg-black/5 dark:bg-white/5 rounded-xl p-6 space-y-6">
           <div className="flex items-center gap-2 mb-4">

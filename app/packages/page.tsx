@@ -6,9 +6,9 @@ export const dynamic = "force-dynamic";
 export default async function PackagesPage() {
   const packages = await prisma.package.findMany({ orderBy: { name: "asc" } });
   return (
-    <div className="pt-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-3xl font-bold mb-8">Rental Packages</h1>
+    <div className="pt-16">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <h1 className="text-4xl font-bold mb-10">Rental Packages</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {packages.map((pkg) => (
             <Link key={pkg.id} href={`/packages/${pkg.slug}`} className="border border-black/10 dark:border-white/10 rounded-xl p-4 hover:shadow-sm transition-shadow">

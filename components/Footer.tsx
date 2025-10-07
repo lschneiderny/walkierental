@@ -3,18 +3,18 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 border-t border-black/10 dark:border-white/10 mt-12">
-      <div className="mx-auto max-w-7xl px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
+    <footer className="bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 border-t border-black/10 dark:border-white/10 mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
           {/* Company Info - Takes 3 columns */}
           <div className="md:col-span-3">
-            <Link href="/" className="inline-block text-2xl font-bold text-[color:var(--primary)] hover:opacity-80 transition-opacity mb-3">
+            <Link href="/" className="inline-block text-2xl font-bold text-[color:var(--primary)] hover:opacity-80 transition-opacity mb-4">
               WalkieRentals
             </Link>
-            <p className="text-sm text-black/70 dark:text-white/70 mb-4">
+            <p className="text-base text-black/70 dark:text-white/70 mb-6 leading-relaxed">
               Professional walkie-talkie rentals for events, productions, and crews.
             </p>
-            <div className="space-y-2 text-sm text-black/60 dark:text-white/60">
+            <div className="space-y-3 text-sm text-black/60 dark:text-white/60">
               <div className="flex items-start gap-2">
                 <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -36,8 +36,8 @@ export default function Footer() {
 
           {/* Quick Links - Takes 3 columns */}
           <div className="md:col-span-3">
-            <h3 className="font-bold text-sm uppercase tracking-wide mb-3">Quick Links</h3>
-            <ul className="space-y-2 text-sm text-black/60 dark:text-white/60">
+            <h3 className="font-bold text-sm uppercase tracking-wide mb-4">Quick Links</h3>
+            <ul className="space-y-2.5 text-sm text-black/60 dark:text-white/60">
               <li><Link href="/packages" className="hover:text-[color:var(--primary)] hover:translate-x-1 inline-block transition-all">Rental Packages</Link></li>
               <li><a href="https://www.gothamsound.com/walkies" target="_blank" rel="noopener noreferrer" className="hover:text-[color:var(--primary)] hover:translate-x-1 inline-flex items-center gap-1 transition-all">
                 Accessories
@@ -53,8 +53,8 @@ export default function Footer() {
 
           {/* Support - Takes 3 columns */}
           <div className="md:col-span-3">
-            <h3 className="font-bold text-sm uppercase tracking-wide mb-3">Support</h3>
-            <ul className="space-y-2 text-sm text-black/60 dark:text-white/60">
+            <h3 className="font-bold text-sm uppercase tracking-wide mb-4">Support</h3>
+            <ul className="space-y-2.5 text-sm text-black/60 dark:text-white/60">
               <li><Link href="/rental-agreement" className="hover:text-[color:var(--primary)] hover:translate-x-1 inline-block transition-all">Rental Agreement</Link></li>
               <li><Link href="/privacy" className="hover:text-[color:var(--primary)] hover:translate-x-1 inline-block transition-all">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-[color:var(--primary)] hover:translate-x-1 inline-block transition-all">Terms of Service</Link></li>
@@ -63,9 +63,9 @@ export default function Footer() {
 
           {/* Newsletter & Social - Takes 3 columns */}
           <div className="md:col-span-3">
-            <h3 className="font-bold text-sm uppercase tracking-wide mb-3">Stay Connected</h3>
-            <p className="text-sm text-black/60 dark:text-white/60 mb-3">Follow us for updates and tips</p>
-            <div className="flex flex-wrap gap-2 mb-4">
+            <h3 className="font-bold text-sm uppercase tracking-wide mb-4">Stay Connected</h3>
+            <p className="text-sm text-black/60 dark:text-white/60 mb-4">Follow us for updates and tips</p>
+            <div className="flex flex-wrap gap-2.5 mb-4">
               <a href="#" aria-label="Twitter" className="w-9 h-9 rounded-lg bg-black/5 dark:bg-white/10 flex items-center justify-center hover:bg-[color:var(--primary)] hover:text-white transition-all">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
@@ -91,8 +91,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-6 border-t border-black/10 dark:border-white/10">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-black/50 dark:text-white/50">
+        <div className="mt-12 pt-8 border-t border-black/10 dark:border-white/10">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-black/50 dark:text-white/50">
             <p>&copy; {new Date().getFullYear()} WalkieRental. All rights reserved.</p>
             <p className="text-center sm:text-right">Powered by <span className="font-semibold">Gotham Sound and Communications</span></p>
           </div>

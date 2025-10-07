@@ -29,15 +29,15 @@ export default async function AdminHome() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">Dashboard</h1>
-        <p className="text-sm text-black/60 dark:text-white/60">Overview of your walkie rental business</p>
+      <div className="mb-10">
+        <h1 className="text-4xl font-bold mb-3">Dashboard</h1>
+        <p className="text-base text-black/60 dark:text-white/60">Overview of your walkie rental business</p>
       </div>
 
       {/* Key Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
         <div className="border border-black/10 dark:border-white/10 rounded-xl p-4">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm text-black/60 dark:text-white/60">Active Rentals</span>
@@ -76,7 +76,7 @@ export default async function AdminHome() {
       </div>
 
       {/* Product Overview */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
         <div className="border border-black/10 dark:border-white/10 rounded-xl p-6">
           <h2 className="text-lg font-semibold mb-4">Product Inventory</h2>
           <div className="space-y-4">

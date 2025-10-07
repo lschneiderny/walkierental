@@ -22,12 +22,12 @@ export default async function AdminPackages() {
   const totalValue = packages.reduce((sum, pkg) => sum + Number(pkg.dailyRate), 0);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-6">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 space-y-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold">Packages</h1>
-          <p className="text-foreground/60 mt-1">Create and manage rental packages</p>
+          <h1 className="text-4xl font-bold">Packages</h1>
+          <p className="text-foreground/60 mt-2 text-base">Create and manage rental packages</p>
         </div>
         <Link 
           href="/admin/packages/new" 
