@@ -53,7 +53,9 @@ export default function Header() {
             <Link href="/" className="flex items-center hover:opacity-80 transition-opacity mt-3">
               <Image 
                 src="https://7eeuu4wend.ufs.sh/f/hytIev0arWPe7HYbKt58nlvh0qWXKtCLQzmT6w239gbfxkoF" 
-                alt="WalkieRentals" 
+                width={80}
+                height={80}
+                alt="WalkieRentals logo"
                 className="h-20 w-auto relative z-10"
               />
             </Link>

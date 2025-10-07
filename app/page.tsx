@@ -16,6 +16,27 @@ export default async function Home() {
 
       {/* Main content */}
       <div className="mx-auto max-w-7xl px-1">
+
+        {/* How it works */}
+        <section className="py-16 border-t border-black/10 dark:border-white/10">
+          <h2 className="text-3xl font-bold mb-8">How it works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[{n:1,t:"SHOP",d:"Browse our exhaustive inventory until you find the perfect gear."},{n:2,t:"SHIP YOUR ITEMS",d:"We'll ship your order to arrive on the day you ask to receive it."},{n:3,t:"SHOOT",d:"Get great shots during your rental period."},{n:4,t:"RETURN",d:"Return gear in the same box on the rental end date."}].map(step => (
+              <div key={step.n} className="relative">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-[color:var(--primary)] text-white font-bold text-xl flex items-center justify-center" style={{clipPath: 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%)'}}>
+                    {step.n}
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold text-sm uppercase tracking-wide mb-1">{step.t}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{step.d}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Popular Packages */}
         <section className="py-16">
           <div className="flex items-end justify-between mb-8">
@@ -42,26 +63,6 @@ export default async function Home() {
                 No packages yet. Check back soon!
               </div>
             )}
-          </div>
-        </section>
-
-        {/* How it works */}
-        <section className="py-16 border-t border-black/10 dark:border-white/10">
-          <h2 className="text-3xl font-bold mb-8">How it works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[{n:1,t:"SHOP",d:"Browse our exhaustive inventory until you find the perfect gear."},{n:2,t:"SHIP YOUR ITEMS",d:"We'll ship your order to arrive on the day you ask to receive it."},{n:3,t:"SHOOT",d:"Get great shots during your rental period."},{n:4,t:"RETURN",d:"Return gear in the same box on the rental end date."}].map(step => (
-              <div key={step.n} className="relative">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-[color:var(--primary)] text-white font-bold text-xl flex items-center justify-center" style={{clipPath: 'polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%)'}}>
-                    {step.n}
-                  </div>
-                  <div className="flex-1">
-                    <div className="font-semibold text-sm uppercase tracking-wide mb-1">{step.t}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">{step.d}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </section>
 
