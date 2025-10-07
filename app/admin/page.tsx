@@ -29,7 +29,7 @@ export default async function AdminHome() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div className="mx-auto max-w-7xl px-1 py-16">
       {/* Header */}
       <div className="mb-10">
         <h1 className="text-4xl font-bold mb-3">Dashboard</h1>

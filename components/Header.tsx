@@ -45,7 +45,7 @@ export default function Header() {
       }`}
       style={{ opacity }}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl mt-0 px-1">
         <div className="flex items-center justify-between h-16 relative">
           {/* Left Section - Logo and Branding */}
           <div className="flex items-center gap-5">
@@ -57,7 +57,7 @@ export default function Header() {
               />
             </Link>
             
-            <div className="hidden lg:flex flex-col gap-1 mt-1">
+            <div className="hidden lg:flex flex-col gap-1 mt-0">
               <h1 className="text-xl font-bold leading-none text-[color:var(--primary)]">
                 WalkieRental
               </h1>

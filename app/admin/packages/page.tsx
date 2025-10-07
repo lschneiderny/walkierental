@@ -22,7 +22,7 @@ export default async function AdminPackages() {
   const totalValue = packages.reduce((sum, pkg) => sum + Number(pkg.dailyRate), 0);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <div className="mx-auto max-w-7xl px-1 py-16 space-y-8">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>

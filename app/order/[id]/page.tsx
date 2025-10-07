@@ -15,7 +15,7 @@ export default async function OrderConfirmationPage({ params }: Props) {
 
   return (
     <div className="pt-16">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-4xl px-1 py-16">
         <h1 className="text-4xl font-bold mb-4">Order Received</h1>
       <p className="text-base text-black/70 dark:text-white/70 mb-10">Order ID: {order.id}</p>
       <div className="space-y-4">

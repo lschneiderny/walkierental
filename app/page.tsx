@@ -10,12 +10,12 @@ export default async function Home() {
   });
 
   return (
-    <div className="pt-20">
+    <div className="pt-16">
       {/* Hero Carousel */}
       <HeroCarousel />
 
       {/* Main content */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-1">
         {/* Popular Packages */}
         <section className="py-16">
           <div className="flex items-end justify-between mb-8">

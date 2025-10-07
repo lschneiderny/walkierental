@@ -28,7 +28,7 @@ export default function SignInPage() {
 
   return (
     <div className="pt-16">
-      <div className="mx-auto max-w-md px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mx-auto max-w-md px-1 py-16">
         <h1 className="text-4xl font-bold mb-10 text-center">Sign in</h1>
       <form onSubmit={onSubmit} className="space-y-5">
         <div>
