@@ -14,11 +14,11 @@ export default async function AdminProducts() {
   const lowStockProducts = products.filter(p => p.stock < 5).length;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl font-semibold">Products</h1>
+          <h1 className="text-3xl font-bold">Products</h1>
           <p className="text-sm text-black/60 dark:text-white/60 mt-1">Manage your rental equipment and accessories</p>
         </div>
         <Link 

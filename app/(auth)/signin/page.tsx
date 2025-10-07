@@ -27,8 +27,9 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="mx-auto max-w-sm px-4 sm:px-6 lg:px-8 py-10">
-      <h1 className="text-2xl font-semibold mb-6">Sign in</h1>
+    <div className="pt-20">
+      <div className="mx-auto max-w-sm px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-bold mb-8">Sign in</h1>
       <form onSubmit={onSubmit} className="space-y-4">
         <div>
           <label className="block text-sm mb-1">Email</label>
@@ -88,9 +89,10 @@ export default function SignInPage() {
         </button>
       </div>
 
-      <p className="text-sm text-black/60 dark:text-white/60 mt-4">
-        No account? <a href="/register" className="underline">Register</a>
-      </p>
+        <p className="text-sm text-black/60 dark:text-white/60 mt-4">
+          No account? <a href="/register" className="underline">Register</a>
+        </p>
+      </div>
     </div>
   );
 }

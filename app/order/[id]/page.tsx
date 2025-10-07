@@ -14,8 +14,9 @@ export default async function OrderConfirmationPage({ params }: Props) {
   const subtotal = order.items.reduce((acc, it) => acc + Number(it.unitPrice) * it.quantity, 0);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10">
-      <h1 className="text-2xl font-semibold mb-6">Order received</h1>
+    <div className="pt-20">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-bold mb-6">Order Received</h1>
       <p className="text-sm text-black/70 dark:text-white/70 mb-6">Order ID: {order.id}</p>
       <div className="space-y-3">
         {order.items.map((it) => (
@@ -39,7 +40,8 @@ export default async function OrderConfirmationPage({ params }: Props) {
         <p className="font-medium">Subtotal</p>
         <p className="font-medium">${String(subtotal.toFixed(2))}</p>
       </div>
-      <p className="text-sm text-black/60 dark:text-white/60 mt-6">We’ll reach out to confirm details and delivery.</p>
+        <p className="text-sm text-black/60 dark:text-white/60 mt-6">We'll reach out to confirm details and delivery.</p>
+      </div>
     </div>
   );
 }

@@ -12,7 +12,8 @@ export default async function PackageDetailPage({ params }: Props) {
   });
   if (!pkg) return notFound();
   return (
-    <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10">
+    <div className="pt-20">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="md:col-span-2">
           <div className="aspect-[4/3] bg-black/5 dark:bg-white/10 rounded mb-4 overflow-hidden" />
@@ -33,6 +34,7 @@ export default async function PackageDetailPage({ params }: Props) {
             <PackageAvailability packageId={pkg.id} />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

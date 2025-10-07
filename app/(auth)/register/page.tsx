@@ -29,8 +29,9 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="mx-auto max-w-sm px-4 sm:px-6 lg:px-8 py-10">
-      <h1 className="text-2xl font-semibold mb-6">Register</h1>
+    <div className="pt-20">
+      <div className="mx-auto max-w-sm px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-bold mb-8">Register</h1>
       <form onSubmit={onSubmit} className="space-y-4">
         <div>
           <label className="block text-sm mb-1">Name</label>
@@ -49,9 +50,10 @@ export default function RegisterPage() {
           {loading ? "Registering..." : "Register"}
         </button>
       </form>
-      <p className="text-sm text-black/60 dark:text-white/60 mt-4">
-        Already have an account? <a href="/signin" className="underline">Sign in</a>
-      </p>
+        <p className="text-sm text-black/60 dark:text-white/60 mt-4">
+          Already have an account? <a href="/signin" className="underline">Sign in</a>
+        </p>
+      </div>
     </div>
   );
 }

@@ -2,17 +2,15 @@ import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Home() {
   return (
-    
-    <div>
-      <div className="mt-6"></div>
+    <div className="pt-20">
       {/* Hero Carousel */}
-       <HeroCarousel  />
+      <HeroCarousel  />
       
       {/* Main content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* How it works section */}
-        <section className="py-16">
-          <h2 className="text-xl font-medium mb-4">How it works</h2>
+        <section className="py-12">
+          <h2 className="text-2xl font-semibold mb-6">How it works</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {[{n:1,t:"SHOP",d:"Browse our exhaustive inventory until you find the perfect gear."},{n:2,t:"SHIP YOUR ITEMS",d:"We'll ship your order to arrive on the day you ask to receive it."},{n:3,t:"SHOOT",d:"Go out and get some great shots during your rental period."},{n:4,t:"RETURN",d:"Return the equipment in the same box on the day your rental ends."}].map(step => (
             <div key={step.n} className="relative">
@@ -31,8 +29,8 @@ export default function Home() {
         </section>
 
         {/* Featured products section */}
-        <section className="py-16 border-t border-black/10 dark:border-white/10">
-          <h2 className="text-xl font-medium mb-4">Featured products</h2>
+        <section className="py-12 border-t border-black/10 dark:border-white/10">
+          <h2 className="text-2xl font-semibold mb-6">Featured products</h2>
         {/* Simple static showcase; swap to dynamic if you flag products as featured */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
