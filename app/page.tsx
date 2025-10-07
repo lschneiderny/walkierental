@@ -2,7 +2,9 @@ import HeroCarousel from "@/components/HeroCarousel";
 
 export default function Home() {
   return (
+    
     <div>
+      <div className="mt-6"></div>
       {/* Hero Carousel */}
        <HeroCarousel  />
       
