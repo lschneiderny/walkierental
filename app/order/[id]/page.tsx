@@ -40,7 +40,7 @@ export default async function OrderConfirmationPage({ params }: Props) {
         <p className="text-xl font-semibold">Subtotal</p>
         <p className="text-2xl font-bold">${String(subtotal.toFixed(2))}</p>
       </div>
-        <p className="text-base text-black/60 dark:text-white/60 mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">We'll reach out to confirm details and delivery.</p>
+        <p className="text-base text-black/60 dark:text-white/60 mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-800">We&apos;ll reach out to confirm details and delivery.</p>
       </div>
     </div>
   );

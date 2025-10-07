@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import CartButton from "./CartButton";
+import Image from 'next/image'
 
 export default function Header() {
   const [opacity, setOpacity] = useState(1);
@@ -50,7 +51,7 @@ export default function Header() {
           {/* Left Section - Logo and Branding */}
           <div className="flex items-center gap-5">
             <Link href="/" className="flex items-center hover:opacity-80 transition-opacity mt-3">
-              <img 
+              <Image 
                 src="https://7eeuu4wend.ufs.sh/f/hytIev0arWPe7HYbKt58nlvh0qWXKtCLQzmT6w239gbfxkoF" 
                 alt="WalkieRentals" 
                 className="h-20 w-auto relative z-10"
